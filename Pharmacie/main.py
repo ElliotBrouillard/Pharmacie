@@ -67,7 +67,6 @@ class fenetrePrincipale(QtWidgets.QMainWindow,UI_PY.MainWindow_pharmacie.Ui_Main
         # Afficher la boite de dialogue
         dialog.show()
         dialog.exec()
-    # ToDO : Écrire le gestionnaire d'événement du bouton Patient
     # gastionnaire d'événement du bouton Médicament
     @pyqtSlot()
     def on_pushButton_medicament_clicked(self):
