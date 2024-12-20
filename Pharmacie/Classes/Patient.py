@@ -16,7 +16,7 @@ class Patient:
     def _get_num_patient(self):
         return self._num_patient
     def _set_num_patient(self, num_patient):
-        if len(num_patient)==7 and num_patient[0].isdigit(0,2,4,6,8):
+        if len(num_patient)==7 and num_patient[0]%2==0:
             self._num_patient = num_patient
         else:
             print("Le numéro de patient doit être composée de sept chiffres dont le premier est pair")
@@ -43,7 +43,7 @@ class Patient:
     #         self._courriel = courriel
 
 
-
+    # définition de la méthode privée calculer_Age
     @staticmethod
     def calculer_Age(p_date_naiss_patient: date):
         today = date.today()
@@ -52,9 +52,22 @@ class Patient:
         else:
             return today.year - p_date_naiss_patient.year() - ((today.month, today.day) < (p_date_naiss_patient.month(), p_date_naiss_patient.day()))
 
-    def verif_age(self, age):
+    # définition de la méthode public verif_age
+    def estAdulte(self, age):
         calculer_Age()
         if age>=18:
             print("Patient est majeur")
         elif age<18:
             print("Enfant")
+    def afficherMedicaments(self):
+        print("*"*60)
+        print("##### Voici les médicaments du patient ######")
+        print(self._list_medic)
+        print("*"*60)
+
+    def ajouterMedicaments(self, medicament):
+        self._list_medic.append(medicament)
+
+    def supprimerMedicament(self, medicament):
+        self._list_medic.remove(medicament)
+
